@@ -36,7 +36,10 @@ def pwait():
         else:
             continue
 
-def cwait():
-    k= cv2.waitKey(0)
+def cwait(*args):
+    key = 0
+    if args:
+        key = args[0]
+    k= cv2.waitKey(key)
     if k == 0xFF & ord("q"):
-        cv2.destroyAllWindows() 
+        cv2.destroyAllWindows()
